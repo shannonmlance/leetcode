@@ -20,7 +20,7 @@
 
 -- Your output is the whole Person table after executing your sql. Use delete statement.
 
-DELETE PersonA.*
+DELETE PersonA
 FROM Person PersonA, Person PersonB
 WHERE PersonA.Email = PersonB.Email
 AND PersonA.Id > PersonB.Id
