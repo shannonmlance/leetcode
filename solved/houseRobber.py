@@ -17,14 +17,21 @@
 # changes full array into just two variables
 class goodSolution:
     def rob(self, nums):
+        # if the given array is empty, return zero
         if len(nums) == 0:
             return 0
+        # set two variables to store the two highest options
         prev1 = 0
         prev2 = 0
+        # iterate through the given array
         for n in nums:
+            # store one option in a variable
             temp = prev1
+            # update that option by comparing it to the other option plus the current value
             prev1 = max(prev2 + n, temp)
+            # update the other option
             prev2 = temp
+        # return the highest option
         return prev1
 
 # sill requires an entire array
