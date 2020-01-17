@@ -17,12 +17,13 @@
 # Note:
 # You may assume both s and t have the same length.
 
+# this method will work with many inputs (not limited to two strings)
 class Solution:
-    def isIsomorphic(self, s, t):
+    def isIsomorphic(self, q, r, s, t):
         # zip(s,t) means for each value of s, link the corresponding value of t
         # set() means if two pieces are identical, combine them
         # by comparing the lengths, we can determine how many duplicates there are in each string, and if the duplicates occur at corresponding places
-        return len(set(zip(s,t))) == len(set(s)) == len(set(t))
+        return len(set(zip(q,r,s,t))) == len(set(q)) == len(set(r)) == len(set(s)) == len(set(t))
 
 class mySolution:
     def isIsomorphic(self, s, t):
@@ -50,8 +51,10 @@ class mySolution:
         # if the loop completes, then the two strings are isomorphic
         return True
 
+q = "total"
+r = "memos"
 s = "bible"
-t = "paper"
+t = "paler"
 sol = Solution()
-a = sol.isIsomorphic(s, t)
+a = sol.isIsomorphic(q, r, s, t)
 print(a)
