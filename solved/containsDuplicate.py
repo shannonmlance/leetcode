@@ -24,7 +24,7 @@ class Solution:
                 return True
             # if the number is not already in the set, add it to the set
             s.add(i)
-        # if all numbers in teh set are unique, then there are no duplicates
+        # if all numbers in the set are unique, then there are no duplicates
         return False
 
 class mySolution:
