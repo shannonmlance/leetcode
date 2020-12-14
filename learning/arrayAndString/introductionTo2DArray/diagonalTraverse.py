@@ -17,6 +17,51 @@
 
 class Solution:
     def findDiagonalOrder(self, matrix):
+        # initiate an empty dictionary
+        d = {}
+        # loop through the matrix
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                # if the index value is already in the dictionary as a key
+                if i+j in d:
+                    # each key in the dictionary has an array as its value
+                    # add the current matrix value to the dictionary, using the index value as the key
+                    d[i+j].append(matrix[i][j])
+                # if the index value is not already in the dictionary as a key
+                else:
+                    # add the current matrix value to an array in the dictionary, using the index value as the key
+                    d[i+j] = [matrix[i][j]]
+        # initiate an empty array
+        arr = []
+        # loop through the dictionary, pulling the keys in order
+        for x in range(len(d)):
+            # if the key is an odd number
+            if x % 2 == 1:
+                # loop through the array associated with the key
+                for i in d[x]:
+                    # add each value from the key's array to the new array
+                    arr.append(i)
+            # if the key is an even number
+            else:
+                # reverse the array associated with the key
+                d[x].reverse()
+                # loop through the array associated with the key
+                for i in d[x]:
+                    # add each value from the key's array to the new array
+                    arr.append(i)
+        return arr
+
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+s = Solution()
+a = s.findDiagonalOrder(matrix)
+print(a)
+
+class mySolution:
+    def findDiagonalOrder(self, matrix):
         # if the matrix is empty, return an empty array
         if len(matrix) == 0:
             return []
@@ -77,9 +122,3 @@ class Solution:
             turn += 1
         return arr
 
-matrix = [
-    []
-]
-s = Solution()
-a = s.findDiagonalOrder(matrix)
-print(a)
